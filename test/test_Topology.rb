@@ -5,7 +5,7 @@ class TestTopology < MiniTest::Unit::TestCase
     @s2 = Set[1, 2]
     @s3 = Set[1, 2, 3]
     @top2 = @s2.power
-    @top  = Topology.new Set[Set[2], Set[1]]
+    @top  = Topology.new Set[1,2], Set[Set[2], Set[1]]
   end
 
   def test_power

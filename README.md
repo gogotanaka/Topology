@@ -20,7 +20,7 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-Topology.new Set[Set[1], Set[2]]
+top = Topology.new Set[Set[1], Set[2]]
 => #<Topology:0x007f8074132c60 @sos=#<Set: {#<Set: {1}>, #<Set: {2}>, #<Set: {1, 2}>, #<Set: {}>}>>
 ```
 

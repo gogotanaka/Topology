@@ -3,15 +3,15 @@ require "set"
 class Topology
   attr_accessor :sos # Set of set
 
-  def initialize(set)
-    fail "sould be set of set" unless set.sos?
-    @sos = if set.top? set.flatten #TODO: set of set of set
-      set.flatten
+  def initialize(set, sub_power)
+    fail "#{sub_power.inspect} should subset of #{set.power.inspect}" unless sub_power.subset? set.power
+    @sos = if set.top? sub_power
+      sub_power
     else
-      set << set.flatten
-      set2 = set.dup
-      set3 = set.dup
-      set.each do |e|
+      sub_power << set
+      set2 = sub_power.dup
+      set3 = sub_power.dup
+      sub_power.each do |e|
         set2.delete(e)
         set2.each { |f| set3 << (e & f)  }
       end
